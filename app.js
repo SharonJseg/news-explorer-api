@@ -9,11 +9,12 @@ const { limiter } = require('./middleware/limiter');
 const { errorController } = require('./middleware/errorController');
 const routes = require('./routes/index');
 const NotFoundError = require('./errors/NotFoundError');
+const { DB_ADDRESS } = require('./utils/constants');
 
 dotenv.config();
 const { PORT = 3000 } = process.env;
 
-mongoose.connect('mongodb://localhost:27017/news', {
+mongoose.connect(DB_ADDRESS, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

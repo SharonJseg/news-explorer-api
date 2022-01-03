@@ -1,3 +1,8 @@
+const { NODE_ENV, SERVER_DB } = process.env;
+
+module.exports.DB_ADDRESS =
+  NODE_ENV === 'production' ? SERVER_DB : 'mongodb://localhost:27017/news';
+
 module.exports.DEV_KEY = 'my-secret-code';
 
 module.exports.statusCodeList = {

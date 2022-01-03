@@ -6,10 +6,13 @@ const {
   addArticle,
   removeArticle,
 } = require('../controllers/articles');
-const { validateCreateArticle } = require('../middleware/validate');
+const {
+  validateCreateArticle,
+  validateArticleId,
+} = require('../middleware/validate');
 
 router.get('/', auth, getArticles);
 router.post('/', auth, validateCreateArticle, addArticle);
-router.delete('/:articleId', auth, removeArticle);
+router.delete('/:articleId', auth, validateArticleId, removeArticle);
 
 module.exports = router;

@@ -27,8 +27,15 @@ const validateCreateArticle = celebrate({
   }),
 });
 
+const validateArticleId = celebrate({
+  params: Joi.object().keys({
+    articleId: Joi.string().required().hex(),
+  }),
+});
+
 module.exports = {
   validateRegister,
   validateLogin,
   validateCreateArticle,
+  validateArticleId,
 };
